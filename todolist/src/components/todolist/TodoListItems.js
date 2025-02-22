@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useGlobalContext } from "../../context";
 import "./TodoListItemsStyle.css";
 const TodoListItems = () => {

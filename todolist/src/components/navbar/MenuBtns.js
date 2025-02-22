@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import "./MenuBtnsStyle.css";
 import { useGlobalContext } from "../../context";
 const MenuBtns = () => {
