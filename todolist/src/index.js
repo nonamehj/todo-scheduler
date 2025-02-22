@@ -8,11 +8,11 @@ import { AppProvider as AppProviderContext2 } from "./context2";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AppProviderContext1>
-      <AppProviderContext2>
+    <AppProviderContext2>
+      <AppProviderContext1>
         <App />
-      </AppProviderContext2>
-    </AppProviderContext1>
+      </AppProviderContext1>
+    </AppProviderContext2>
   </React.StrictMode>
 );
 

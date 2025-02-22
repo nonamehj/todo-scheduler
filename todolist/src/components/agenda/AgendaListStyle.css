@@ -3,7 +3,7 @@
   width: 100%;
   overflow-y: auto;
   margin-bottom: 0.5rem;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 .agenda-list-center {
   width: 100%;
@@ -30,4 +30,5 @@
   border-radius: 0.25rem;
   background-color: #fff;
   word-break: break-word;
+  /* border: 1px solid red; */
 }
