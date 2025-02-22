@@ -1,0 +1,95 @@
+.calendar-days-center {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, minmax(80px, 1fr));
+  /* gap: 0.1rem; */
+
+  /* border: 1px solid blue; */
+}
+.calendar-day {
+  position: relative;
+  display: flex;
+  /* padding: 0.5rem; */
+  padding: 0.5rem 0.55rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: transparent;
+  background-color: lightgray;
+  background-color: #fff;
+  border-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* border-radius: 0.25rem; */
+  color: #000;
+  cursor: pointer;
+  /* border: 1px solid blue; */
+}
+.calendar-day.activeDay {
+  background-color: orange;
+}
+.calendar-day:hover {
+  background-color: grey;
+}
+.agenda-underline {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 15%;
+}
+.completedDay .agenda-underline {
+  background-color: black;
+}
+.incompleteDay .agenda-underline {
+  background-color: blue;
+}
+/*오늘 요일 표시*/
+.activeDay .agenda-underline {
+  background-color: red;
+}
+/*오늘 완료 표시*/
+.activeDay.completedDay .agenda-underline {
+  background-color: black;
+}
+@media screen and (max-width: 479px) {
+  .calendar-day {
+    /* padding: 0.5rem 0.45rem; */
+    padding: 0.5rem 0.35rem;
+    /* font-size: 0.9rem; */
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .calendar-day {
+    /* padding: 0.5rem; */
+    padding: 0.5rem 0.45rem;
+    /* font-size: 0.95rem; */
+    font-size: 1.05rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .calendar-day {
+    padding: 0.5rem 0.55rem;
+    font-size: 1.1rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .calendar-day {
+    padding: 0.5rem 0.65rem;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .calendar-day {
+    padding: 0.5rem 0.75rem;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .calendar-day {
+    padding: 0.5rem 0.85rem;
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,33 @@
+.agenda-list-container {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  margin-bottom: 0.5rem;
+  /* border: 1px solid red; */
+}
+.agenda-list-center {
+  width: 100%;
+  min-height: 100%;
+  padding: 0 0.25rem;
+}
+
+.agenda-item {
+  display: flex;
+  padding: 0.5rem;
+  /* margin: 0.35rem; */
+  /* border: 1px solid red; */
+}
+.agenda-item input {
+  margin-right: 1rem;
+}
+
+.agenda-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  background-color: #fff;
+  word-break: break-word;
+}

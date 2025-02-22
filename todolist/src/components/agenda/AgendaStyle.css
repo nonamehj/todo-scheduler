@@ -1,0 +1,315 @@
+.agenda-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+
+.agenda-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  overflow-y: auto;
+  /* border: 1px solid blue; */
+  /* background-color: blue; */
+}
+
+.agenda-title {
+  flex-shrink: 0;
+  display: flex;
+  /* justify-content: center; */
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0.25rem;
+  height: 180px;
+  /* border: 1px solid red; */
+}
+.agenda-title h3 {
+  padding: 1rem;
+  font-size: 2rem;
+  /* text-align: center; */
+  font-weight: bold;
+
+  /* border: 1px solid purple; */
+}
+.agenda-title button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 0.75rem;
+  border-color: transparent;
+  background-color: transparent;
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.agenda-title button:hover {
+  color: rgba(0, 0, 0, 1);
+}
+.agenda-calendar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* margin: 0.5rem 0.25rem; */
+  margin: 0.5rem;
+  /* border: 1px solid red; */
+  /* border: 1px solid purple; */
+  /* border: 1px solid red; */
+  position: relative;
+}
+.agenda-calendar-color {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* padding: 0 0.5rem; */
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  background-color: lightgray;
+  /* border: 1px solid blue; */
+}
+/*수정 다시*/
+.calendar-container {
+  /* position: relative; */
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  /* border: 1px solid rgba(0, 0, 0, 0.5); */
+  /* border-radius: 0.25rem; */
+  /* padding: 0.25rem; */
+  /* margin: 0.25rem; */
+  /* border: 1px solid red; */
+  background-color: lightgray;
+  /* border: 1px solid red; */
+}
+.calendar-week-center {
+  /* display: grid; */
+  /* grid-template-columns: repeat(7, 1fr); */
+  /* grid-template-rows: 40px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* border: 1px solid blue; */
+}
+.calendar-week {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  color: #fff;
+  /* background-color: pink; */
+  /* border: 1px solid red; */
+}
+
+@media screen and (max-width: 479px) {
+  .agenda-section {
+    min-height: 100vh;
+    /* border: 1px solid red; */
+  }
+  .agenda-container {
+    margin: 0.25rem;
+    padding: 0.5rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title {
+    justify-content: space-evenly;
+    min-height: 10vh;
+    height: auto;
+    margin: 0;
+  }
+  .agenda-title h3 {
+    font-size: 1.2rem;
+  }
+  .agenda-title button {
+    padding: 0.25rem;
+    margin: 0;
+    font-size: 1rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-calendar {
+    margin: 0.5rem 0 0.25rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-calendar-color {
+    font-size: 0.9rem;
+  }
+  .calendar-week {
+    font-size: 1rem;
+    padding: 0.5rem;
+    /* border: 1px solid red; */
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .agenda-section {
+    min-height: 100vh;
+  }
+  .agenda-container {
+    margin: 0.25rem;
+    padding: 0.5rem;
+  }
+  .agenda-title {
+    justify-content: space-evenly;
+    min-height: 10vh;
+    height: auto;
+    margin: 0;
+  }
+  .agenda-title h3 {
+    font-size: 1.3rem;
+  }
+  .agenda-title button {
+    margin: 0;
+    padding: 0.35rem;
+    font-size: 1.05rem;
+  }
+  .agenda-calendar {
+    margin: 0.5rem 0 0.25rem;
+  }
+  .agenda-calendar-color {
+    font-size: 0.95rem;
+  }
+  .calendar-week {
+    padding: 0.5rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .agenda-container {
+    /* padding: 0.25rem; */
+    padding: 0.25rem 0.5rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title {
+    min-height: 25vh;
+    height: auto;
+    margin: 0.25rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title h3 {
+    font-size: 2rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title button {
+    /* padding: 1rem; */
+    /* margin: 0 0.75rem; */
+    font-size: 1.3rem;
+  }
+  .agenda-calendar {
+    margin: 0.5rem 0.25rem;
+    /* border: 1px solid red; */
+  }
+  .calendar-week {
+    padding: 0.75rem 0.5rem;
+    font-size: 1.1rem;
+    /* border: 1px solid red; */
+  }
+}
+@media screen and (min-width: 1024px) {
+  .agenda-container {
+    /* padding: 0.25rem; */
+    padding: 0.25rem 0.75rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title {
+    min-height: 25vh;
+    height: auto;
+    margin: 0.25rem 0.5rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title h3 {
+    font-size: 2.1rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title button {
+    /* padding: 1rem; */
+    /* margin: 0 1rem; */
+    font-size: 1.4rem;
+  }
+  .agenda-calendar {
+    /* margin: 0.5rem 0.25rem; */
+    margin: 0.5rem 0.5rem;
+    /* border: 1px solid blue; */
+  }
+  .calendar-week {
+    padding: 0.75rem 0.5rem;
+    font-size: 1.15rem;
+    /* border: 1px solid red; */
+  }
+}
+@media screen and (min-width: 1280px) {
+  .agenda-container {
+    /* padding: 0.25rem; */
+    padding: 0.25rem 1rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title {
+    /* min-height: 25vh; */
+    min-height: 25vh;
+    height: auto;
+    margin: 0.25rem 0.75rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title h3 {
+    font-size: 2.2rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title button {
+    /* padding: 1rem; */
+    /* margin: 0 1.25rem; */
+    font-size: 1.5rem;
+  }
+  .agenda-calendar {
+    /* margin: 0.5rem 0.25rem; */
+    margin: 0.5rem 0.75rem;
+    /* border: 1px solid red; */
+  }
+  .calendar-week {
+    padding: 1rem 0.5rem;
+    font-size: 1.2rem;
+    /* border: 1px solid red; */
+  }
+}
+@media screen and (min-width: 1440px) {
+  .agenda-container {
+    /* padding: 0.25rem; */
+    padding: 0.25rem 1.25rem;
+    /* border: 1px solid red; */
+  }
+  .agenda-title {
+    /* min-height: 25vh; */
+    min-height: 25vh;
+    height: auto;
+    margin: 0.25rem 1rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title h3 {
+    font-size: 2.3rem;
+    /* border: 1px solid blue; */
+  }
+  .agenda-title button {
+    /* padding: 1rem; */
+    /* margin: 0 1.5rem; */
+    font-size: 1.6rem;
+  }
+  .agenda-calendar {
+    /* margin: 0.5rem 0.25rem; */
+    margin: 0.5rem 1rem;
+    /* border: 1px solid red; */
+  }
+  .calendar-week {
+    padding: 1rem 0.5rem;
+    font-size: 1.25rem;
+    /* border: 1px solid red; */
+  }
+}

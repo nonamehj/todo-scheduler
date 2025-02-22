@@ -1,0 +1,116 @@
+.links-btn {
+  flex: 1;
+  padding: 0.25rem;
+  /* margin: 0 0.25rem; */
+  /* margin-top: 0.25rem; */
+  /* border: 1px solid red; */
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0.25rem;
+  /* border: 1px solid blue; */
+}
+.links li {
+  width: 100%;
+  margin: 0.5rem;
+  /* border: 1px solid red; */
+}
+.list-btn {
+  width: 100%;
+  background-color: transparent;
+  border-color: transparent;
+  color: #000;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+.list-btn:hover {
+  border: 1px solid rgba(0, 0, 0, 1);
+}
+
+@media screen and (max-width: 479px) {
+  .links-btn {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.25rem;
+    margin: 0 0.25rem;
+    /* margin: 0 0.25rem; */
+    /* border: 1px solid red; */
+  }
+  .links {
+    flex-direction: row;
+    width: 100%;
+    margin: 0 0.25rem;
+    padding: 0.25rem 0;
+    overflow-x: auto;
+    /* border: 1px solid red; */
+  }
+  .links li {
+    margin: 0;
+    margin: 0 0.2rem;
+    /* margin: 0 0.25rem; */
+  }
+  .list-btn {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .links-btn {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    /* margin: 0 0.25rem; */
+    margin: 0 0.5rem;
+    /* border: 1px solid red; */
+  }
+  .links {
+    flex-direction: row;
+    margin: 0 0.25rem;
+    padding: 0.25rem 0;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .links li {
+    margin: 0 0.2rem;
+    /* margin: 0 0.25rem; */
+    /* border: 1px solid blue; */
+  }
+  .list-btn {
+    padding: 0.5rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .list-btn {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .list-btn {
+    padding: 0.75rem;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .list-btn {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .list-btn {
+    padding: 1.25rem;
+    font-size: 1.5rem;
+  }
+}
