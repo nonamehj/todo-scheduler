@@ -1,6 +1,5 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -36,7 +35,8 @@ const AppProvider = ({ children }) => {
   // const formattedDate = selectedDate.toLocaleDateString("ko-KR");
   // const formattedDate = selectedDate.toLocaleDateString("ko-KR").replace(/\./g, "-");
   // console.log("agendaitem", agendaItems);
-  console.log("agendaList", agendaList);
+  // console.log("context locals agendaList", agendaList);
+  console.log("context agnedaItems", agendaItems);
   // console.log("selec", selectedDate?.toISOString().split("T")[0]);
   // console.log("local", selectedDate?.toLocaleDateString());
   // localStorage.clear();
@@ -120,6 +120,7 @@ const AppProvider = ({ children }) => {
       showAlert(true, "success", "항목이 변경되었습니다.");
     } else {
       showAlert(true, "success", "목록에 항목이 추가되었습니다.");
+      console.log("form click");
       const newItem = {
         id: Date.now(),
         title: items,
@@ -188,6 +189,7 @@ const AppProvider = ({ children }) => {
   const isModalOpen = (date) => {
     setModalOpen(true);
     setSelectedDate(date);
+    // setSelectedDate(date.toLocaleDateString());
   };
   /*모달닫기 */
   const isModalClose = () => {
@@ -285,6 +287,7 @@ const AppProvider = ({ children }) => {
     // }
 
     if (selectedDate) {
+      // console.log("context useeffect selectedDate", selectedDate);
       // const selectedDateString = selectedDate.toISOString().split("T")[0];
       const selectedDateString = selectedDate.toLocaleDateString();
       const agenda = agendaList.find(
@@ -296,10 +299,11 @@ const AppProvider = ({ children }) => {
       // const formItems = agenda ? agenda.items : null;
       setAgendaItems(formItems);
     }
-  }, [selectedDate, agendaList]);
+  }, [selectedDate, agendaList, setAgendaItems]);
   useEffect(() => {
     setCurrentDate(new Date());
   }, []);
+  useEffect(() => {}, []);
   return (
     <AppContext.Provider
       value={{
