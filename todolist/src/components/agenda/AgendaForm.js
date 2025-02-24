@@ -1,9 +1,9 @@
-import React from "react";
-import { useGlobalContext } from "../../context2";
-import Alert from "../alert/Alert";
+import React, { useEffect } from "react";
 import "./AgendaFormStyle.css";
-import AgendaList from "./AgendaList";
+import { useGlobalContext } from "../../context2";
 import { FaTimes } from "react-icons/fa";
+import Alert from "../alert/Alert";
+import AgendaList from "./AgendaList";
 const AgendaForm = () => {
   const {
     handleAgendaSubmit,
@@ -21,10 +21,9 @@ const AgendaForm = () => {
   const selectedDateTitle = `${selectedDate.getFullYear()}년 ${
     selectedDate.getMonth() + 1
   }월 ${selectedDate.getDate()}일`;
-  // console.log("fo", agendaItems);
-  // console.log("ori", selectedDate);
+  // console.log("tttttttttt", selectedDate);
   // console.log("sd", selectedDate.toISOString().split("T")[0]);
-  // console.log("alert", alert.show);
+
   return (
     <div className="calendar-form-container">
       <div className="calendar-form-center">

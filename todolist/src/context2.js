@@ -31,15 +31,20 @@ const AppProvider = ({ children }) => {
   const [editId, setEditId] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const editRef = useRef();
-  // const formattedDate = selectedDate.toISOString().split("T")[0];
-  // const formattedDate = selectedDate.toLocaleDateString("ko-KR");
+
   // const formattedDate = selectedDate.toLocaleDateString("ko-KR").replace(/\./g, "-");
   // console.log("agendaitem", agendaItems);
   // console.log("context locals agendaList", agendaList);
-  console.log("context agnedaItems", agendaItems);
+  // console.log("context agnedaItems", agendaItems);
+  // console.log("agendalist", agendaList);
+  console.log("selectedDate", selectedDate);
   // console.log("selec", selectedDate?.toISOString().split("T")[0]);
   // console.log("local", selectedDate?.toLocaleDateString());
-  // localStorage.clear();
+
+  // const formatDate = (dateString) => {
+  //   return dateString.replace(/\./g, '-');
+  // };
+
   const agendaDateList = useMemo(() => {
     return agendaList.reduce((acc, item) => {
       // const selectedDateString = new Date(item.date)
@@ -88,19 +93,10 @@ const AppProvider = ({ children }) => {
   const handleAgendaSubmit = (e) => {
     e.preventDefault();
     if (!items) {
-      // console.log("준비중");
       showAlert(true, "danger", "항목을 입력하세요");
     } else if (items && isEditing) {
-      // setAgendaList((agenda) => {
-      //   if (agenda.id === editId) {
-      //     return { ...agenda, title: items };
-      //   }
-      //   return agenda;
-      // });
       setAgendaList((prev) => {
         return prev.map((agenda) => {
-          // const agendaDate = new Date(agenda.date).toISOString().split("T")[0];
-          // const selectedDateString = selectedDate.toISOString().split("T")[0];
           const agendaDate = new Date(agenda.date).toLocaleDateString();
           const selectedDateString = selectedDate.toLocaleDateString();
           if (agendaDate === selectedDateString) {
@@ -120,7 +116,6 @@ const AppProvider = ({ children }) => {
       showAlert(true, "success", "항목이 변경되었습니다.");
     } else {
       showAlert(true, "success", "목록에 항목이 추가되었습니다.");
-      console.log("form click");
       const newItem = {
         id: Date.now(),
         title: items,
@@ -143,7 +138,6 @@ const AppProvider = ({ children }) => {
           // const selectedDateString = selectedDate.toISOString().split("T")[0];
           const agendaDate = new Date(agenda.date).toLocaleDateString();
           const selectedDateString = selectedDate.toLocaleDateString();
-          // agenda.date === selectedDate
           if (agendaDate === selectedDateString) {
             return { ...agenda, items: [...agenda.items, newItem] };
           }
@@ -189,7 +183,7 @@ const AppProvider = ({ children }) => {
   const isModalOpen = (date) => {
     setModalOpen(true);
     setSelectedDate(date);
-    // setSelectedDate(date.toLocaleDateString());
+    // setSelectedDate(formatDate(date.toLocaleDateString()));
   };
   /*모달닫기 */
   const isModalClose = () => {
@@ -287,23 +281,26 @@ const AppProvider = ({ children }) => {
     // }
 
     if (selectedDate) {
-      // console.log("context useeffect selectedDate", selectedDate);
-      // const selectedDateString = selectedDate.toISOString().split("T")[0];
       const selectedDateString = selectedDate.toLocaleDateString();
+      // const selectedDateString = formatDate(selectedDate);
+      // console.log("string", selectedDateString);
+      console.log("");
+      console.log("st", selectedDate);
       const agenda = agendaList.find(
         (agenda) =>
-          // new Date(agenda.date).toISOString().split("T")[0] ===
-          new Date(agenda.date).toLocaleDateString() === selectedDateString
+          // new Date(agenda.date).toLocaleDateString() === selectedDateString
+          agenda.date === selectedDateString
       );
       const formItems = agenda ? agenda.items : [];
+      // console.log("useEffect agenda", formItems);
       // const formItems = agenda ? agenda.items : null;
       setAgendaItems(formItems);
     }
-  }, [selectedDate, agendaList, setAgendaItems]);
+  }, [selectedDate, agendaList]);
   useEffect(() => {
     setCurrentDate(new Date());
   }, []);
-  useEffect(() => {}, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -331,6 +328,7 @@ const AppProvider = ({ children }) => {
         showAlert,
 
         agendaDateList,
+        setAgendaList,
       }}
     >
       {children}

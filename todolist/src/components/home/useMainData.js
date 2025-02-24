@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useGlobalContext as todoContext } from "../../context";
 import { useGlobalContext as agendaContext } from "../../context2";
 
-const useMainData = (today) => {
+const useMainData = () => {
   const { list } = todoContext();
   const { agendaList } = agendaContext();
   const [trueListItems, setTrueListItems] = useState([]);
   const [falseListItems, setFalseListItems] = useState([]);
   const [trueAgendaItems, setTrueAgendaItems] = useState([]);
   const [falseAgendaItems, setFalseAgendaItems] = useState([]);
-
+  const [today] = useState(new Date());
   const filterListItems = list.filter((item) => !item.isCompleted);
   const filterAgendaItems = agendaList
     .filter((item) => item.date >= today.toLocaleDateString() && item)
@@ -42,6 +42,7 @@ const useMainData = (today) => {
         } else {
           acc.falseList.push(cur);
         }
+
         return acc;
       },
       { trueList: [], falseList: [] }
@@ -52,20 +53,24 @@ const useMainData = (today) => {
   useEffect(() => {
     let { trueAgenda, falseAgenda } = agendaList.reduce(
       (acc, cur) => {
-        cur.items.forEach((item) => {
-          if (item.isCompleted) {
-            acc.trueAgenda.push(item);
-          } else {
-            acc.falseAgenda.push(item);
-          }
-        });
+        if (
+          new Date(cur.date).toLocaleDateString() >= today.toLocaleDateString()
+        ) {
+          cur.items.forEach((item) => {
+            if (item.isCompleted) {
+              acc.trueAgenda.push(item);
+            } else {
+              acc.falseAgenda.push(item);
+            }
+          });
+        }
         return acc;
       },
       { trueAgenda: [], falseAgenda: [] }
     );
     setTrueAgendaItems(trueAgenda);
     setFalseAgendaItems(falseAgenda);
-  }, [agendaList]);
+  }, [agendaList, today]);
   return {
     filterListItems,
     agendaList,
@@ -75,6 +80,7 @@ const useMainData = (today) => {
     falseAgendaItems,
     trueListItems,
     falseListItems,
+    today,
   };
 };
 

@@ -9,8 +9,14 @@ import CalendarDays from "./CalendarDays";
 
 const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
 const Agenda = () => {
-  const { modalOpen, previousMonth, nextMonth, currentDate, setCurrentDate } =
-    useGlobalContext();
+  const {
+    modalOpen,
+    previousMonth,
+    nextMonth,
+    currentDate,
+    setCurrentDate,
+    setAgendaList,
+  } = useGlobalContext();
 
   useEffect(() => {
     setCurrentDate(new Date());
@@ -33,6 +39,7 @@ const Agenda = () => {
         <div className="agenda-calendar">
           <div className="agenda-calendar-color">
             <p>* color : so what?</p>
+            <button onClick={() => setAgendaList([])}>삭제</button>
           </div>
           <div className="calendar-container">
             <div className="calendar-week-center">

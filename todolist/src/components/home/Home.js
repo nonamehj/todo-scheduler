@@ -1,8 +1,8 @@
-import React from "react";
 import "./HomeStyle.css";
 import useMainData from "./useMainData";
+import { useGlobalContext } from "./../../context2";
 const Home = () => {
-  const today = new Date();
+  // const today = new Date()
   const {
     filterListItems,
     filterAgendaItems,
@@ -11,8 +11,9 @@ const Home = () => {
     falseAgendaItems,
     trueListItems,
     falseListItems,
-  } = useMainData(today);
-
+    today,
+  } = useMainData();
+  const { agendaItems } = useGlobalContext();
   const sortAgendaList = filterAgendaItems
     ?.filter((item) => item.date >= today.toLocaleDateString())
     .sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -28,6 +29,7 @@ const Home = () => {
       <div className="home-container">
         <div className="home-title">
           <h3>오늘의 리스트를 작성해보세요.</h3>
+          <p>{`테스트 진행중 agendaItems.length ${agendaItems.length} ?`}</p>
         </div>
         <div className="preview-wrapper">
           <div className="preview-content ">

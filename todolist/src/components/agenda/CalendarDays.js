@@ -7,6 +7,7 @@ const CalendarDays = () => {
   return (
     <div className="calendar-days-center">
       {getCalendarDays().map((day, index) => {
+        // console.log("days", day);
         // const isCurrentDay = day?.getDate() === today.getDate();
         // const isEmptyDay = day === null;
         // const agendaDate = new Date(day).toISOString().split("T")[0];
@@ -32,7 +33,8 @@ const CalendarDays = () => {
                 : ""
             }`}
             disabled={day === null ? true : false}
-            onClick={() => isModalOpen(new Date(day))}
+            // onClick={() => isModalOpen(new Date(day))}
+            onClick={() => isModalOpen(day)}
           >
             <p>{day ? day.getDate() : ""}</p>
             {agendaLength && <p className="agenda-underline"></p>}
